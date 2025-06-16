@@ -4,31 +4,23 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.xibei.hellospring.entities.Address;
-import org.xibei.hellospring.entities.Profile;
-import org.xibei.hellospring.entities.Tag;
 import org.xibei.hellospring.entities.User;
+import org.xibei.hellospring.repositories.AddressRepository;
+import org.xibei.hellospring.repositories.UserRepository;
 
 @SpringBootApplication
 public class HelloSpringApplication {
 
     public static void main(String[] args) {
-        //ApplicationContext applicationContext = SpringApplication.run(HelloSpringApplication.class, args);
+        ApplicationContext applicationContext = SpringApplication.run(HelloSpringApplication.class, args);
 
-        var user = User.builder()
-                .name("xibei")
-                .email("email")
-                .password("password")
-                .build();
+        UserRepository repository = applicationContext.getBean(UserRepository.class);
 
-        var profile = Profile.builder()
-                .bio("bio")
-                .build();
+        AddressRepository addressRepository = applicationContext.getBean(AddressRepository.class);
 
-        user.setProfile(profile);
-        profile.setUser(user);
+        Address address = addressRepository.findById(1L).orElseThrow();
 
-
-        System.out.println(user);
+        System.out.println(address);
     }
 
 }

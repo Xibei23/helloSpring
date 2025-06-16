@@ -1,25 +1,7 @@
-server:
-  port: 8082
-
-person:
-  name: xibei
-  age: ${random.int}
-  happy: false
-  birthday: 2024/11/04
-  map: {k1: v1, k2: v2}
-  list:
-    - code
-    - music
-    - girl
-  dog:
-    name: chocolate
-    age: 3
-
-notify:
-  type: email
-
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true
     username: root
     password: 123456
+  jpa:
+    show-sql: true
