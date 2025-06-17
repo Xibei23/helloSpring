@@ -51,6 +51,10 @@ public class User {
         tag.getUsers().add(this);
     }
 
+    public void addProduct(Product product) {
+        this.products.add(product);
+    }
+
     @ManyToMany
     @JoinTable(
             name = "user_tags",

@@ -1,2 +1,2 @@
 alter table products
-    add `description` text not null ;
+    add `description` text;
