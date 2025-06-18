@@ -23,7 +23,7 @@ public class HelloSpringApplication {
 
         UserService userService = applicationContext.getBean(UserService.class);
 
-        userService.saveProduct();
+        userService.fetchUser();
 
     }
 
